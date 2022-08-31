@@ -1,9 +1,25 @@
 console.log("JS ok");
+const buttonPalindroma = document.getElementById("btnpal")
+const container = document.querySelector("body")
+
+
 
 // esercizio Parola Palindroma
+buttonPalindroma.addEventListener("click", function () {
+    container.innerHTML = ""
+    let userWord = prompt("inserisci una parola a tuo piacimento e in console vedrai se e' palindroma").trim().toLowerCase();
+    let reverseWord = checkPalinndrome(userWord);
 
-let userWord = prompt("inserisci una parola a tuo piacimento e in console vedrai se e' palindroma").trim().toLowerCase()
+    if (userWord === reverseWord) {
+        container.innerHTML = `<h4>Hai inserito una parola palindroma</h4>`
+        container.append(restartBtn)
+    } else {
+        container.innerHTML = `<h4>La parola inserita non e' palindroma</h4>`
+        container.append(restartBtn)
+    }
+})
 
+//funzione
 function checkPalinndrome(insertedWord) {
     let controlWord = "";
     if (insertedWord !== "") {
@@ -17,23 +33,16 @@ function checkPalinndrome(insertedWord) {
 
 };
 
-let reverseWord = checkPalinndrome(userWord);
-//console.log(reverseWord)
 
-if (userWord === reverseWord) {
-    console.log("Hai inserito una parola palindroma")
-} else {
-    console.log("La parola inserita non e' palindroma")
-}
-
+//--------------------------------------------------------------------------------------------------------
 
 // eserciozio Pari Dispari
 const button = document.getElementById("btn")
 const pariDispariInput = document.getElementById("paridispari").value
 const numberInput = document.getElementById("number")
 const restartBtn = document.createElement("button")
-restartBtn.innerHTML = "Ritenta"
-restartBtn.classList.add("btn", "btn-danger", "width")
+restartBtn.innerHTML = "Ritorna alla pagina iniziale"
+restartBtn.classList.add("btn", "btn-danger", "width", "m-5")
 const row = document.querySelector(".rowbox")
 
 // funzioni
