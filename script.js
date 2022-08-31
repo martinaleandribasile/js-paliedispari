@@ -7,7 +7,7 @@ const container = document.querySelector("body")
 // esercizio Parola Palindroma
 buttonPalindroma.addEventListener("click", function () {
     container.innerHTML = ""
-    let userWord = prompt("inserisci una parola a tuo piacimento e in console vedrai se e' palindroma").trim().toLowerCase();
+    let userWord = prompt("inserisci una parola a tuo piacimento e scopri se e' palindroma").trim().toLowerCase();
     let reverseWord = checkPalinndrome(userWord);
 
     if (userWord === reverseWord) {
