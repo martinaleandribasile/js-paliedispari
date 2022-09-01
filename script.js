@@ -47,14 +47,13 @@ const row = document.querySelector(".rowbox")
 
 // funzioni
 function getRandomNumber(min, max) {
+    // let range = max - min + 1; se il minore non e'1.... e lo uso sotto al posto di max
     let numRandom = Math.floor(Math.random() * max) + min;
     return numRandom;
 }
-function pariDispariCheck(num) {
+function pariDispariCheck(num, somma) {
     if (num.value > 0 && num.value < 6) {
         row.innerHTML = "";
-        let pcNumberGenerate = getRandomNumber(1, 5);
-        let somma = num.value + pcNumberGenerate
         if (pariDispariInput === "pari" && somma % 2 === 0 || pariDispariInput === "dispari" && somma % 2 !== 0) {
             row.innerHTML = `<h1>Congratulazioni hai VINTO</h1>`
         } else {
@@ -68,7 +67,9 @@ function pariDispariCheck(num) {
 
 // eventi
 button.addEventListener("click", function () {
-    pariDispariCheck(numberInput)
+    let pcNumberGenerate = getRandomNumber(1, 5);
+    let somma = numberInput.value + pcNumberGenerate
+    pariDispariCheck(numberInput, somma)
     row.append(restartBtn)
 });
 
